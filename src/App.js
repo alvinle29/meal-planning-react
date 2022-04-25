@@ -5,9 +5,11 @@ function App() {
   const [mealData, setMealData] = useState(null);
   const [calories, setCalories] = useState(2000);
 
+  const API_KEY = process.env.REACT_APP_API_KEY;
+
   function getMealData() {
     fetch(
-      `https://api.spoonacular.com/mealplanner/generate?apiKey=cb1c464d94f142c08b156c5beddade8b&timeFrame=day&targetCalories=${calories}`
+      `https://api.spoonacular.com/mealplanner/generate?apiKey=${API_KEY}&timeFrame=day&targetCalories=${calories}`
     )
       .then((response) => response.json())
       .then((data) => {
